@@ -41,15 +41,18 @@ def main(arg):
 
     print('----- 모델 로드 완료 -----')
 
-
+    result_csv = pd.DataFrame()
     fileList = watchDir(img_path)
     if fileList:
         images = [x for x in fileList if x.split('.')[-1].lower() in img_formats]
         for img in images:
 
             # pytorch 검출
-            pt_detect(img, device, models, ciou, reader, gray=gray, byteMode=False, perspect=False)
+            df = pt_detect(img, device, models, ciou, reader, gray=gray, byteMode=False, perspect=False)
 
+            result_csv = pd.concat([result_csv, df])
+
+    result_csv.to_csv('csv/result.csv', index=False, encoding='utf-8-sig')
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

@@ -258,9 +258,11 @@ class Reader(object):
                 char_list =  input_file.read().splitlines()
             self.lang_char += char_list
         if model:
-            symbol = model['symbols']
+            # symbol = model['symbols']
+            symbol = '0123456789-.( '
         else:
-            symbol = '0123456789!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ '
+            # symbol = '0123456789!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ '
+            symbol = '0123456789-. '
         self.lang_char = set(self.lang_char).union(set(symbol))
         self.lang_char = ''.join(self.lang_char)
 

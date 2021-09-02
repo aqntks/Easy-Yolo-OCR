@@ -36,6 +36,9 @@ class ImagePack:
         # self.o_img = cv2.imread(path)  # 원본
         assert self.o_img is not None, '이미지를 찾을 수 없습니다 ' + path
 
+        if self.o_img.shape[1] < 1280:
+            self.o_img = self.resize_test_test(self.o_img, 1280)
+
         if perspect:
             self.n_img = perspective(self.o_img)
         else:
@@ -133,6 +136,20 @@ class ImagePack:
         self.setImg(img)
 
         return self.t_img, self.n_img
+
+    def resize_test_test(self, image, size):
+        width = image.shape[1]
+        height = image.shape[0]
+        widthBetter = True if width > height else False
+
+        if widthBetter:
+            ratio = size / width
+            img = cv2.resize(image, dsize=(size, int(height * ratio)))
+        else:
+            ratio = size / height
+            img = cv2.resize(image, dsize=(int(width * ratio), size))
+
+        return img
 
 
 
