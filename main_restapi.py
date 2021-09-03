@@ -10,7 +10,7 @@ import json
 
 from collections import OrderedDict
 
-from core.id_scan import pt_detect
+from core.scan import pt_detect
 from models.experimental import attempt_load
 
 import pprint

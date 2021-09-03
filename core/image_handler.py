@@ -1,10 +1,9 @@
 import cv2
 import numpy as np
-from core.perspective_transform import perspective
 
 
 class ImagePack:
-    def __init__(self, path, img_size=640, stride=32, byteMode=False, gray=False, perspect=False):
+    def __init__(self, path, img_size=640, stride=32, byteMode=False, gray=False):
         if byteMode:  # 이미지 바이트 상태로 들어온 경우
             img = np.array(path)
             img = img[:, :, ::-1].copy()
@@ -39,10 +38,8 @@ class ImagePack:
         if self.o_img.shape[1] < 1280:
             self.o_img = self.resize_test_test(self.o_img, 1280)
 
-        if perspect:
-            self.n_img = perspective(self.o_img)
-        else:
-            self.n_img = self.o_img  # 현재 이미지
+        self.n_img = self.o_img  # 현재 이미지
+
         self.img_size = img_size
         self.stride = stride
         self.t_img = self.img2pyt(self.n_img)  # 검출용 이미지

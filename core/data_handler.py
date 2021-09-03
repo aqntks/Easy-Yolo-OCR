@@ -1,6 +1,5 @@
 import os
 import json
-import pandas as pd
 from collections import OrderedDict
 from core.image_handler import *
 

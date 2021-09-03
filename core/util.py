@@ -268,3 +268,79 @@ def rect_in_value(det, item, names, charMode=True):
         result += resultDic[d]
 
     return result
+
+
+# ################# 회색크롭
+    # best = 0
+    # for rect in rect_list:
+    #     w = rect[1] - rect[0]
+    #     best = w if w > best else best
+    #
+    # new_image = np.zeros((1, best, 3))
+    # new_rect_list = []
+    # nowH = 0
+    #
+    # for rect in rect_list:
+    #     x1, x2, y1, y2 = rect[0], rect[1], rect[2], rect[3]
+    #     w = x2 - x1
+    #     h = y2 - y1
+    #     img_crop = im0s[y1:y2, x1:x2]
+    #     gray = np.zeros((h, best - w, 3))
+    #     gray[:, :, :] = 80
+    #     img_crop = np.concatenate([img_crop, gray], axis=1)
+    #     new_image = np.concatenate([new_image, img_crop], axis=0)
+    #     new_rect_list.append([0, w, nowH, nowH + h])
+    #     nowH = nowH + h
+
+    # ################# 640 대비 크롭
+    # size = 640
+    # best = 0
+    # for rect in rect_list:
+    #     w = rect[1] - rect[0]
+    #     best = w if w > best else best
+    #
+    # if best < size:
+    #     best = size
+    #
+    # new_image = np.zeros((1, best, 3))
+    # new_rect_list = []
+    # nowH = 0
+    #
+    # for rect in rect_list:
+    #     x1, x2, y1, y2 = rect[0], rect[1], rect[2], rect[3]
+    #     w = x2 - x1
+    #     h = y2 - y1
+    #
+    #     img_crop = im0s[y1:y2, x1:x2]
+    #
+    #     if w < size:
+    #         ratio = size / w
+    #         h = int(h * ratio)
+    #         img_crop = cv2.resize(img_crop, (size, h))
+    #         w = size
+    #
+    #     gray = np.zeros((h, best - w, 3))
+    #     gray[:, :, :] = 80
+    #     img_crop = np.concatenate([img_crop, gray], axis=1)
+    #     new_image = np.concatenate([new_image, img_crop], axis=0)
+    #     new_rect_list.append([0, w, nowH, nowH + h])
+    #     nowH = nowH + half
+
+
+    # # 강제 rsize 버전입니다@@@@@@@@@@@@@@@@@@@@
+    # size = 700
+    # new_image = np.zeros((1, size, 3))
+    # new_rect_list = []
+    # nowH = 0
+    #
+    # for rect in rect_list:
+    #     x1, x2, y1, y2 = rect[0], rect[1], rect[2], rect[3]
+    #     w = x2 - x1
+    #     h = y2 - y1
+    #     ratio = size / w
+    #     reH = int(h * ratio)
+    #     img_crop = im0s[y1:y2, x1:x2]
+    #     img_crop = cv2.resize(img_crop, (size, reH))
+    #     new_image = np.concatenate([new_image, img_crop], axis=0)
+    #     new_rect_list.append([0, size, nowH, nowH + reH])
+    #     nowH = nowH + reH

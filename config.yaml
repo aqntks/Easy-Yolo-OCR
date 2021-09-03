@@ -1,42 +1,7 @@
 
 images: C:\Users\home\Desktop\id_test
 
-cls-weights: weights/classification/id_cls_s3.pt
-cls-img_size: 640
-cls-confidence: 0.25
-cls-iou: 0.45
-
-jumin-weights: weights/id/id_m4.pt
-jumin-img_size: 640
-jumin-confidence: 0.25
-jumin-iou: 0.45
-
-driver-weights: weights/id/id_m4.pt
-driver-img_size: 640
-driver-confidence: 0.25
-driver-iou: 0.45
-
-passport-weights: weights/passport/passport_m_v1.pt
-passport-img_size: 640
-passport-confidence: 0.25
-passport-iou: 0.45
-
-welfare-weights: weights/welfare/welfare_s_v1.pt
-welfare-img_size: 640
-welfare-confidence: 0.25
-welfare-iou: 0.45
-
-alien-weights: weights/alien/alien_m2.pt
-alien-img_size: 640
-alien-confidence: 0.25
-alien-iou: 0.45
-
-hangul-weights: weights/hangul/hangul_last3_temp.pt
-hangul-img_size: 640
-hangul-confidence: 0.25
-hangul-iou: 0.45
-
-encnum-weights: weights/encnum/enc_m2_temp.pt
-encnum-img_size: 640
-encnum-confidence: 0.25
-encnum-iou: 0.45
+detection: weights/example.pt
+detection-size: 640
+detection-confidence: 0.25
+detection-iou: 0.45
