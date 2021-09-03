@@ -1,9 +1,7 @@
-import os
-import time
+
 import yaml
 import torch
 import argparse
-import pandas as pd
 from easyocr.easyocr import Reader
 
 from core.util import watchDir

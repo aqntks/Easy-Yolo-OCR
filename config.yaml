@@ -1,5 +1,5 @@
 
-images: C:\Users\home\Desktop\id_test
+images: image
 
 detection: weights/example.pt
 detection-size: 640

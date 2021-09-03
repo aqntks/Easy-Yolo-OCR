@@ -11,6 +11,12 @@ torch>=1.7.0
 torchvision>=0.8.1
 tqdm>=4.41.0
 
+
+opencv-python-headless
+scikit-image
+python-bidi
+
+
 # logging -------------------------------------
 tensorboard>=2.4.1
 # wandb
@@ -30,3 +36,6 @@ pandas
 # pycocotools>=2.0  # COCO mAP
 # albumentations>=1.0.3
 thop  # FLOPs computation
+
+
+# Flask
