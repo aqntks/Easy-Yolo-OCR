@@ -12,13 +12,13 @@
 
 ## Introduction
 
-기존의 OCR(Optical character recognition) 프로세스는 Text Detection 모델 문자 영역을 검출한 후 Text Recognition 모델을 통해 문자를 인식하는 방식입니다. 이러한 OCR 모델은 원하는 문서나 이미지 내의 문자 전체를 인식하는 데 효과적입니다.    
+기존의 OCR(Optical character recognition) 프로세스는 Text Detection 모델로 문자 영역을 검출한 후 Text Recognition 모델을 통해 문자를 인식하는 방식입니다. 이러한 OCR 모델은 원하는 문서나 이미지 내의 문자 전체를 인식하는 데 효과적입니다.    
 
 하지만 이미지나 문서 내의 특정 영역 문자만 탐지하기 원하는 경우 불필요한 영역까지 검출하여 검출 속도가 오래 걸리며 결과 값을 처리하기 불편합니다.
 
 다양한 이미지에서 특정한 패턴이나 영역에 위치한 문자만 검출하기 원하시는 분들을 위해 Easy Yolo OCR을 제안합니다.
 
-Easy Yolo OCR은 텍스트 영역을 검출하기 위한 Text Detection 모델을 객체 탐지에 사용되는 Object Detection 모델로 변경하였습니다.  
+Easy Yolo OCR은 텍스트 영역을 검출하기 위한 Text Detection 모델을 객체 탐지에 사용되는 Object Detection 모델로 변경하였습니다. 자신에게 맞는 커스텀 Detection 모델을 학습하고 원하는 서식의 원하는 영역만 검출하세요.
 
 Object Detection 모델은 Real Time Object Detection 분야에서 활발히 활용되는 [yolov5](https://github.com/ultralytics/yolov5) 를 사용합니다. OCR 프로세스는 [EasyOCR](https://github.com/JaidedAI/EasyOCR) 을 벤치마킹 하였으며 Text Recognition 모델은 Clova AI Research의 [deep-text-recognition-benchmark](https://github.com/clovaai/deep-text-recognition-benchmark) 을 통하여 학습되었습니다.
 
