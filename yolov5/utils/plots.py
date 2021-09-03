@@ -16,8 +16,8 @@ import seaborn as sn
 import torch
 from PIL import Image, ImageDraw, ImageFont
 
-from utils.general import is_ascii, xyxy2xywh, xywh2xyxy
-from utils.metrics import fitness
+from yolov5.utils.general import is_ascii, xyxy2xywh, xywh2xyxy
+from yolov5.utils.metrics import fitness
 
 # Settings
 matplotlib.rc('font', **{'size': 11})
