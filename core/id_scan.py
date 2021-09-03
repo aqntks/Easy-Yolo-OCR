@@ -2,7 +2,7 @@ import re
 import yaml
 import ctypes as c
 from core.util import *
-from core.id_card import Driver
+from core.id_card import Driver, Jumin
 from core.general import *
 from core.correction import *
 from core.image_handler import ImagePack
@@ -54,15 +54,104 @@ def detecting(model, img, im0s, device, img_size, half, option, ciou=20):
     return detect
 
 
+# 주민등록증 검출
+def juminScan(det, names):
+    name_conf, regnum_conf, issueDate_conf, bracket_conf = 0, 0, 0, 0
+    nameRect, regnumRect, issueDateRect, bracketRect = None, None, None, None
+    regnum, issueDate = "", ""
+
+    for *rect, conf, cls in det:
+        if names[int(cls)] == 'name':
+            if conf > name_conf:
+                name_conf = conf
+                nameRect = rect
+        if names[int(cls)] == 'regnum':
+            if conf > regnum_conf:
+                regnum_conf = conf
+                regnumRect = rect
+        if names[int(cls)] == 'issuedate':
+            if conf > issueDate_conf:
+                issueDate_conf = conf
+                issueDateRect = rect
+
+    if regnumRect is not None:
+        regnum = rect_in_value(det, regnumRect, names)
+    if issueDateRect is not None:
+        issueDate = rect_in_value(det, issueDateRect, names)
+
+    if nameRect:
+        for *rect, conf, cls in det:
+            if rect[0][0][0] > nameRect[0][0][0] and rect[0][0][1] > nameRect[0][0][1] \
+                    and rect[0][0][2] < nameRect[0][0][2] and rect[0][0][3] < nameRect[0][0][3]:
+                if names[int(cls)] == '(':
+                    if conf > bracket_conf:
+                        bracket_conf = conf
+                        bracketRect = rect
+
+    if bracketRect:
+        nameRect[0][0][2] = bracketRect[0][0][0]
+
+    return Jumin(nameRect, regnum, issueDate)
+
+
 # 운전면허증 검출
 def driverScan(det, names):
     name_conf, regnum_conf, issueDate_conf, local_conf, licensenum_conf, encnum_conf = 0, 0, 0, 0, 0, 0
+    nameRect, regnumRect, issueDateRect, licensenumRect, encnumRect = None, None, None, None, None
+    regnum, issueDate, licensenum, encnum, local = "", "", "", "", ""
+
+    for *rect, conf, cls in det:
+        if names[int(cls)] == 'name':
+            if conf > name_conf:
+                name_conf = conf
+                nameRect = rect
+        if names[int(cls)] == 'regnum':
+            if conf > regnum_conf:
+                regnum_conf = conf
+                regnumRect = rect
+        if names[int(cls)] == 'issuedate':
+            if conf > issueDate_conf:
+                issueDate_conf = conf
+                issueDateRect = rect
+        if names[int(cls)] == 'licensenum':
+            if conf > licensenum_conf:
+                licensenum_conf = conf
+                licensenumRect = rect
+        if names[int(cls)] == 'encnum':
+            if conf > encnum_conf:
+                encnum_conf = conf
+                encnumRect = rect
+        if names[int(cls)].split('_')[0] == 'local':
+            if conf > local_conf:
+                local_conf = conf
+                local = names[int(cls)]
+
+    if regnumRect is not None:
+        regnum = rect_in_value(det, regnumRect, names)
+    if issueDateRect is not None:
+        issueDate = rect_in_value(det, issueDateRect, names)
+    if licensenumRect is not None:
+        licensenum = rect_in_value(det, licensenumRect, names)
+    if encnumRect is not None:
+        encnum = rect_in_value(det, encnumRect, names)
+
+    return Driver(nameRect, regnum, issueDate, local, licensenum, encnum, encnumRect)
+
+
+# 운전면허증 검출
+def easyScan(det, names):
+    title_conf, name_conf, regnum_conf, issueDate_conf, local_conf, licensenum_conf, encnum_conf = 0, 0, 0, 0, 0, 0, 0
     rect_list = []
+    title = 'jumin'
 
     det.sort(key=lambda x : x[2])
 
     for *rect, conf, cls in det:
         rects = rect[0][0]
+        if names[int(cls)].split('_')[0] == 'title':
+            if conf > title_conf:
+                title_conf = conf
+                title = names[int(cls)].split('_')[-1]
         if names[int(cls)] == 'name':
             if conf > name_conf:
                 name_conf = conf
@@ -84,7 +173,52 @@ def driverScan(det, names):
                 encnum_conf = conf
                 rect_list.append([int(rects[0]), int(rects[2]), int(rects[1]), int(rects[3])])
 
+    # if title == 'jumin':
+    #     name_conf = 0
+    #     for *rect, conf, cls in det:
+    #         rects = rect[0][0]
+    #         if names[int(cls)] == 'name':
+    #             if conf > name_conf:
+    #                 name_conf = conf
+    #                 w = rects[2] - rects[0]
+    #                 rect_list[1] = [int(rects[0]), int(rects[2] - w/2), int(rects[1]), int(rects[3])]
+
     return rect_list
+
+
+# ID 카드 분류
+def id_classification(det):
+    bestConf = 0
+    bestId = None
+    id_list = ['jumin', 'driver', 'welfare', 'alien']
+    for *rect, conf, cls in det:
+        if conf > bestConf:
+            bestConf = conf
+            bestId = cls
+
+    if bestId is None:
+        return None
+    else:
+        return id_list[int(bestId)]
+
+
+# 여권 검출 여부 체크
+def passport_classification(det, names):
+    for *rect, conf, cls in det:
+        if names[int(cls)] == 'mrz':
+            return 'passport', (rect[0][0][0], rect[0][0][1], rect[0][0][2], rect[0][0][3])
+    return None, None
+
+# 한글 검출
+def hangulScan(det, names):
+    obj, name = [], ''
+    for *rect, conf, cls in det:
+        obj.append((rect, conf, names[int(cls)]))
+        obj.sort(key=lambda x: x[0][0])
+    for s, conf, cls in obj:
+        name += cls
+
+    return name
 
 
 def pt_detect(path, device, models, ciou, reader, gray=False, byteMode=False, perspect=False):
@@ -94,16 +228,29 @@ def pt_detect(path, device, models, ciou, reader, gray=False, byteMode=False, pe
     # config 로드
     with open('config.yaml', 'r') as f:
         config = yaml.safe_load(f)
+    img_size, confidence, iou = config['cls-img_size'], config['cls-confidence'], config['cls-iou']
+    id_cls_option = (img_size, confidence, iou)
+    img_size, confidence, iou = config['jumin-img_size'], config['jumin-confidence'], config['jumin-iou']
+    jumin_option = (img_size, confidence, iou)
     img_size, confidence, iou = config['driver-img_size'], config['driver-confidence'], config['driver-iou']
     driver_option = (img_size, confidence, iou)
-
+    img_size, confidence, iou = config['passport-img_size'], config['passport-confidence'], config['passport-iou']
+    passport_option = (img_size, confidence, iou)
+    img_size, confidence, iou = config['welfare-img_size'], config['welfare-confidence'], config['welfare-iou']
+    welfare_option = (img_size, confidence, iou)
+    img_size, confidence, iou = config['alien-img_size'], config['alien-confidence'], config['alien-iou']
+    alien_option = (img_size, confidence, iou)
+    img_size, confidence, iou = config['hangul-img_size'], config['hangul-confidence'], config['hangul-iou']
+    hangul_option = (img_size, confidence, iou)
+    img_size, confidence, iou = config['encnum-img_size'], config['encnum-confidence'], config['encnum-iou']
+    encnum_option = (img_size, confidence, iou)
     f.close()
 
     model, stride, img_size, names = model_setting(driver_weights, half, driver_option[0])
     image_pack = ImagePack(path, img_size, stride, byteMode=byteMode, gray=gray, perspect=perspect)
     img, im0s = image_pack.getImg()
     det = detecting(model, img, im0s, device, img_size, half, driver_option[1:])
-    rect_list = driverScan(det, names)
+    rect_list = easyScan(det, names)
 
     # ################# 회색크롭
     # best = 0
@@ -181,7 +328,6 @@ def pt_detect(path, device, models, ciou, reader, gray=False, byteMode=False, pe
     #     nowH = nowH + reH
 
     # cv2.imwrite('test.jpg', new_image)
-    print(im0s.shape)
     result = reader.recogss(im0s, rect_list)
 
     result_line = []
@@ -201,7 +347,12 @@ def pt_detect(path, device, models, ciou, reader, gray=False, byteMode=False, pe
         licenseNum = result_line[2]
         encnum = result_line[3]
         issue = result_line[4]
-
+    elif len(result_line) == 2:
+        jumin = result_line[0]
+        name = '-'
+        licenseNum = '-'
+        encnum = '-'
+        issue = result_line[1]
     else:
         jumin = result_line[0]
         name = result_line[1]
@@ -218,7 +369,9 @@ def pt_detect(path, device, models, ciou, reader, gray=False, byteMode=False, pe
 
     jumin = jumin.replace('.', '').replace('(', '').replace('L', '1').replace('O', '0').replace('Q', '0')\
         .replace('U', '0').replace('D', '0').replace('I', '1').replace('Z', '2').replace('B', '3')\
-        .replace('A', '4').replace('S', '5').replace('T', '1')
+        .replace('A', '4').replace('S', '5').replace('T', '1').replace('-', '')
+    if len(jumin) == 13:
+        jumin = jumin[0:6] + '-' + jumin[6:]
 
     if licenseNum != '-':
         licenseNum = licenseNum.replace('.', '').replace('(', '').replace('-', '').replace('L', '1').replace('O', '0').replace('Q', '0')\
