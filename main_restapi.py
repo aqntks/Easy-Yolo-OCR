@@ -17,7 +17,7 @@ from waitress import serve
 
 app = Flask(__name__)
 
-DETECTION_URL = "/id-scan"
+DETECTION_URL = "/easy-yolo-ocr"
 
 
 @app.route(DETECTION_URL, methods=["POST"])
@@ -25,8 +25,8 @@ def predict():
     if not request.method == "POST":
         return
 
-    if request.files.get("image"):
-        image_file = request.files["image"]
+    if request.files.get("file_param_1"):
+        image_file = request.files["file_param_1"]
         image_bytes = image_file.read()
 
         img = Image.open(io.BytesIO(image_bytes))
