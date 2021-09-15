@@ -44,8 +44,22 @@ $ python train.py --data coco.yaml --cfg yolov5s.yaml --weights '' --batch-size 
                                          yolov5x                                16
 ```
 
+## Setting Config
+```bash
+# config.yaml
+
+images: image                                # 검출 이미지 폴더
+
+detection: weights/example.pt                # 학습된 detecting model
+detection-size: 640                          # 검출 이미지 사이즈
+detection-confidence: 0.25                   # detecting confidence
+detection-iou: 0.45                          # detecting iou
+```
+
+
 ## OCR
 
 ```bash
 $ python main.py --gpu 0 --lang en ko
 ```
+
