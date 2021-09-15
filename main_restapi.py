@@ -1,16 +1,14 @@
 
 import io
-import json
 import yaml
 import torch
 import argparse
-import pandas as pd
 from easyocr.easyocr import Reader
 
 from core.scan import pt_detect
+from yolov5.utils.torch_utils import time_sync
 from yolov5.models.experimental import attempt_load
 
-import pprint
 from PIL import Image
 from flask import Flask, request
 from waitress import serve
@@ -31,7 +29,12 @@ def predict():
 
         img = Image.open(io.BytesIO(image_bytes))
 
-        pt_detect(img, device, detection_model, ciou, reader, gray=gray, byteMode=False)
+        try:
+            start_time = time_sync()
+            pt_detect(img, device, detection_model, ciou, reader, gray=gray, byteMode=False)
+            print('detecting time:', time_sync() - start_time)
+        except Exception as e:
+            print("detecting Fail")
 
 
 if __name__ == "__main__":
@@ -43,7 +46,7 @@ if __name__ == "__main__":
     parser.add_argument('--lang', type=str, default='en ko')
     args = parser.parse_args()
 
-    gpu, gray, ciou, lang = arg.gpu, arg.gray, arg.ciou, arg.lang
+    gpu, gray, ciou, lang = args.gpu, args.gray, args.ciou, args.lang
     img_formats = ['bmp', 'jpg', 'jpeg', 'png', 'tif', 'tiff', 'dng', 'webp', 'mpo', 'gif']
 
     # 디바이스 세팅
