@@ -1,11 +1,13 @@
+import time
 
 import yaml
 import torch
 import argparse
-from easyocr.easyocr import Reader
 
 from core.util import watchDir
 from core.scan import pt_detect
+from easyocr.easyocr import Reader
+from yolov5.utils.torch_utils import time_sync
 from yolov5.models.experimental import attempt_load
 
 
@@ -40,7 +42,12 @@ def main(arg):
         for img in images:
 
             # pytorch 검출
-            pt_detect(img, device, detection_model, ciou, reader, gray=gray, byteMode=False)
+            try:
+                start_time = time_sync()
+                pt_detect(img, device, detection_model, ciou, reader, gray=gray, byteMode=False)
+                print('detecting time:', time_sync() - start_time)
+            except Exception as e:
+                print("detecting Fail")
 
 
 if __name__ == "__main__":
