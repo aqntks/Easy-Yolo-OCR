@@ -1,7 +1,7 @@
 
 images: image
 
-detection: weights/example.pt
+detection: weights/nnnnnn.pt
 detection-size: 640
 detection-confidence: 0.25
-detection-iou: 0.45
+detection-iou: 0.25

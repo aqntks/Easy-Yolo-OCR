@@ -22,6 +22,14 @@ Easy Yolo OCR은 텍스트 영역을 검출하기 위한 Text Detection 모델�
 
 Object Detection 모델은 Real Time Object Detection 분야에서 활발히 활용되는 [yolov5](https://github.com/ultralytics/yolov5) 를 사용합니다. OCR 프로세스는 [EasyOCR](https://github.com/JaidedAI/EasyOCR) 을 벤치마킹 하였으며 Text Recognition 모델은 Clova AI Research의 [deep-text-recognition-benchmark](https://github.com/clovaai/deep-text-recognition-benchmark) 을 통하여 학습되었습니다.
 
+- 기존 OCR 프로세스
+
+![](res/original.jpg)
+
+- Easy Yolo OCR 프로세스
+
+![](res/easyyoloocr.jpg)
+
 
 ## Installation
 

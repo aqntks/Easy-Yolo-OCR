@@ -391,7 +391,7 @@ class Reader(object):
                                                  height_ths,width_ths,\
                                                  add_margin, False)
         # get the 1st result from hor & free list as self.detect returns a list of depth 3
-        horizontal_list, free_list = [], []
+
         result = self.recognize(img_cv_grey, horizontal_list, free_list,\
                                 decoder, beamWidth, batch_size,\
                                 workers, allowlist, blocklist, detail, rotation_info,\
