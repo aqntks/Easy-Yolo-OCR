@@ -69,5 +69,7 @@ detection-iou: 0.45                          # detecting iou
 
 ```bash
 $ python main.py --gpu 0 --lang en ko
+$ python main.py --gpu 0 --lang en
+$ python main.py --gpu -1 --lang ko         # --gpu -1 : cpu mode
 ```
 
