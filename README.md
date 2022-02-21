@@ -41,7 +41,15 @@ $ pip install -r requirements.txt
 ```
 
 ## Prepare Training Data
+```bash
+path: ./dataset/custom_data
+train: ./dataset/custom_train.txt
+val:  ./dataset/custom_valid.txt
+test:  ./dataset/custom_train_test.txt
 
+nc: 1  # number of classes
+names: ['text_area']  # class names
+```
 
 ## Train Detection Model
 ``` bash
