@@ -54,15 +54,15 @@ $ pip install -r requirements.txt
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image3.txt
 
 2. 라벨링 텍스트 구성(image.txt)\
-클래스인덱스 박스시작X좌표 박스시작Y좌표 박스Width 박스Height\
-클래스인덱스 박스시작X좌표 박스시작Y좌표 박스Width 박스Height\
-클래스인덱스 박스시작X좌표 박스시작Y좌표 박스Width 박스Height\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.\
+(클래스인덱스) (박스시작X좌표[0-1값]) (박스시작Y좌표[0-1값]) (박스Width[0-1값]) (박스Height[0-1값])\
+(클래스인덱스) (박스시작X좌표[0-1값]) (박스시작Y좌표[0-1값]) (박스Width[0-1값]) (박스Height[0-1값])\
+(클래스인덱스) (박스시작X좌표[0-1값]) (박스시작Y좌표[0-1값]) (박스Width[0-1값]) (박스Height[0-1값])\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.
                          
 ```bash
-# image1.txt 예)
+# 예) image1.txt 
 
 0 0.6659722222222223 0.11302083333333333 0.4013888888888889 0.06770833333333333
 0 0.48333333333333334 0.12552083333333333 0.025 0.036458333333333336
