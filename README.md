@@ -80,8 +80,8 @@ $ pip install -r requirements.txt
 ```
 
 
-
-custom.yaml 파일 생성 후 아래 내용 작성
+### 4. custom.yaml 작성
+data/custom.yaml 파일 생성 후 아래 내용 작성
 
 ```bash
 # custom.yaml
@@ -101,7 +101,7 @@ $ cd yolov5
 ```
 
 ```bash
-$ python train.py --data coco.yaml --weights 'yolov5s.pt' --batch-size 64
+$ python train.py --data custom.yaml --weights 'yolov5s.pt' --batch-size 64
                                               yolov5m.pt               40
                                               yolov5l.pt               24
                                               yolov5x.pt               16
