@@ -55,9 +55,9 @@ Place the image file(jpg, png ... etc) and labeling file(txt) in the "./dataset/
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image3.txt
 
 ### 2. Configure labeling text(image.txt)
-(ClassIndex)&nbsp;&nbsp;(BoxStartX[value 0-1])&nbsp;&nbsp;(BoxStartY[0-1값])&nbsp;&nbsp;(BoxWidth[0-1값])&nbsp;&nbsp;(BoxHeight[0-1값])\
-(ClassIndex)&nbsp;&nbsp;(BoxStartX[value 0-1])&nbsp;&nbsp;(BoxStartY[0-1값])&nbsp;&nbsp;(BoxWidth[0-1값])&nbsp;&nbsp;(BoxHeight[0-1값])\
-(ClassIndex)&nbsp;&nbsp;(BoxStartX[value 0-1])&nbsp;&nbsp;(BoxStartY[0-1값])&nbsp;&nbsp;(BoxWidth[0-1값])&nbsp;&nbsp;(BoxHeight[0-1값])\
+(ClassIndex)&nbsp;&nbsp;(BoxStartX[value 0-1])&nbsp;&nbsp;(BoxStartY[value 0-1])&nbsp;&nbsp;(BoxWidth[value 0-1])&nbsp;&nbsp;(BoxHeight[value 0-1])\
+(ClassIndex)&nbsp;&nbsp;(BoxStartX[value 0-1])&nbsp;&nbsp;(BoxStartY[value 0-1])&nbsp;&nbsp;(BoxWidth[value 0-1])&nbsp;&nbsp;(BoxHeight[value 0-1])\
+(ClassIndex)&nbsp;&nbsp;(BoxStartX[value 0-1])&nbsp;&nbsp;(BoxStartY[value 0-1])&nbsp;&nbsp;(BoxWidth[value 0-1])&nbsp;&nbsp;(BoxHeight[value 0-1])\
                          
 ```bash
 # ex) image1.txt 
