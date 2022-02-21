@@ -42,6 +42,9 @@ $ pip install -r requirements.txt
 
 ## Prepare Training Data
 ```bash
+custom.yaml 파일 생성
+아래 내용 작성
+
 path: ./dataset/custom_data
 train: ./dataset/custom_train.txt
 val:  ./dataset/custom_valid.txt
