@@ -41,7 +41,7 @@ $ pip install -r requirements.txt
 ```
 
 ## Prepare Training Data
-1. 데이터 위치
+### 1. 데이터 위치
 ./dataset/custom_data 폴더 내에 이미지 파일(jpg, png ... etc), 라벨링 파일(txt)을 위치한다.
 
 ---dataset\
@@ -53,10 +53,10 @@ $ pip install -r requirements.txt
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image3.jpg\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image3.txt
 
-2. 라벨링 텍스트 구성(image.txt)\
-(클래스인덱스) (박스시작X좌표[0-1값]) (박스시작Y좌표[0-1값]) (박스Width[0-1값]) (박스Height[0-1값])\
-(클래스인덱스) (박스시작X좌표[0-1값]) (박스시작Y좌표[0-1값]) (박스Width[0-1값]) (박스Height[0-1값])\
-(클래스인덱스) (박스시작X좌표[0-1값]) (박스시작Y좌표[0-1값]) (박스Width[0-1값]) (박스Height[0-1값])\
+### 2. 라벨링 텍스트 구성(image.txt)\
+(클래스인덱스)&nbsp;(박스시작X좌표[0-1값])&nbsp;(박스시작Y좌표[0-1값])&nbsp;(박스Width[0-1값])&nbsp;(박스Height[0-1값])\
+(클래스인덱스)&nbsp;(박스시작X좌표[0-1값])&nbsp;(박스시작Y좌표[0-1값])&nbsp;(박스Width[0-1값])&nbsp;(박스Height[0-1값])\
+(클래스인덱스)&nbsp;(박스시작X좌표[0-1값])&nbsp;(박스시작Y좌표[0-1값])&nbsp;(박스Width[0-1값])&nbsp;(박스Height[0-1값])\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.
