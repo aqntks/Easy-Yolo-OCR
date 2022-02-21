@@ -45,21 +45,18 @@ $ pip install -r requirements.txt
 ./dataset/custom_data 폴더 내에 이미지 파일(jpg, png ... etc), 라벨링 파일(txt)을 위치한다.
 
 ---dataset\
-&nbsp;&nbsp;&nbsp;&nbsp;ㄴ---custom_data\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ㄴ---image1.jpg\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image1.txt\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image2.jpg\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image2.txt\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image3.jpg\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image3.txt
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ㄴ---custom_data\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ㄴ---image1.jpg\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image1.txt\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image2.jpg\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image2.txt\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image3.jpg\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image3.txt
 
 ### 2. 라벨링 텍스트 구성(image.txt)
-(클래스인덱스)&nbsp;(박스시작X좌표[0-1값])&nbsp;(박스시작Y좌표[0-1값])&nbsp;(박스Width[0-1값])&nbsp;(박스Height[0-1값])\
-(클래스인덱스)&nbsp;(박스시작X좌표[0-1값])&nbsp;(박스시작Y좌표[0-1값])&nbsp;(박스Width[0-1값])&nbsp;(박스Height[0-1값])\
-(클래스인덱스)&nbsp;(박스시작X좌표[0-1값])&nbsp;(박스시작Y좌표[0-1값])&nbsp;(박스Width[0-1값])&nbsp;(박스Height[0-1값])\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.
+(클래스인덱스)&nbsp;&nbsp;(박스시작X좌표[0-1값])&nbsp;&nbsp;(박스시작Y좌표[0-1값])&nbsp;&nbsp;(박스Width[0-1값])&nbsp;&nbsp;(박스Height[0-1값])\
+(클래스인덱스)&nbsp;&nbsp;(박스시작X좌표[0-1값])&nbsp;&nbsp;(박스시작Y좌표[0-1값])&nbsp;&nbsp;(박스Width[0-1값])&nbsp;&nbsp;(박스Height[0-1값])\
+(클래스인덱스)&nbsp;&nbsp;(박스시작X좌표[0-1값])&nbsp;&nbsp;(박스시작Y좌표[0-1값])&nbsp;&nbsp;(박스Width[0-1값])&nbsp;&nbsp;(박스Height[0-1값])
                          
 ```bash
 # 예) image1.txt 
@@ -80,8 +77,8 @@ $ pip install -r requirements.txt
 ```
 
 ### 3. train, valid, test file 생성
-./dataset/custom_train.txt
-./dataset/custom_valid.txt
+./dataset/custom_train.txt\
+./dataset/custom_valid.txt\
 ./dataset/custom_train_test.txt
 
 ```bash
