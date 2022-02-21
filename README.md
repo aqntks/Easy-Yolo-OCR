@@ -45,7 +45,7 @@ $ pip install -r requirements.txt
 ./dataset/custom_data 폴더 내에 이미지 파일(jpg, png ... etc), 라벨링 파일(txt)을 위치한다.
 
 ---dataset\
-&nbsp&nbsp&nbsp&nbspㄴ---custom_data\
+&nbsp;&nbsp;&nbsp;&nbsp;ㄴ---custom_data\
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspㄴ---image1.jpg
           ---image1.txt
           ---image2.jpg
