@@ -5,6 +5,8 @@
 ![issue badge](https://img.shields.io/badge/%EB%8B%A4%EA%B5%AD%EC%96%B4-%EC%A7%80%EC%9B%90-yellow)
 [![LinkedIn Badge](http://img.shields.io/badge/LinkedIn-@InpyoHong-0072b1?style=flat&logo=linkedin&link=https://www.linkedin.com/in/inpyo-hong-886781212/)](https://www.linkedin.com/in/inpyo-hong-886781212/)
 
+[(English README)](https://github.com/aqntks/Easy-Yolo-OCR/blob/master/README_en.md)
+
 원하는 영역만 텍스트 검출을 진행하세요  
 
 이 저장소는 [yolov5](https://github.com/ultralytics/yolov5) 와 [EasyOCR](https://github.com/JaidedAI/EasyOCR) 을 활용한 프로젝트입니다.
