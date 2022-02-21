@@ -46,12 +46,12 @@ $ pip install -r requirements.txt
 
 ---dataset\
 &nbsp;&nbsp;&nbsp;&nbsp;ㄴ---custom_data\
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspㄴ---image1.jpg
-          ---image1.txt
-          ---image2.jpg
-          ---image2.txt
-          ---image3.jpg
-          ---image3.txt
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ㄴ---image1.jpg
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image1.txt
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image2.jpg
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image2.txt
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image3.jpg
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image3.txt
 
 2. 라벨링 텍스트 구성(image.txt)\
 클래스인덱스 박스시작X좌표 박스시작Y좌표 박스Width 박스Height\
