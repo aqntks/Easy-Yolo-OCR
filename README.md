@@ -41,8 +41,7 @@ $ pip install -r requirements.txt
 ```
 
 ## Prepare Training Data
-custom.yaml 파일 생성
-아래 내용 작성
+custom.yaml 파일 생성 후 아래 내용 작성
 
 ```bash
 
