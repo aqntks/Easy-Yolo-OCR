@@ -40,6 +40,9 @@ $ cd Easy-Yolo-OCR
 $ pip install -r requirements.txt
 ```
 
+## Prepare Training Data
+
+
 ## Train Detection Model
 ``` bash
 $ cd yolov5
