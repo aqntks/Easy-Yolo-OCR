@@ -83,10 +83,10 @@ $ cd yolov5
 ```
 
 ```bash
-$ python train.py --data coco.yaml --cfg yolov5s.yaml --weights '' --batch-size 64
-                                         yolov5m                                40
-                                         yolov5l                                24
-                                         yolov5x                                16
+$ python train.py --data coco.yaml --weights 'yolov5s.pt' --batch-size 64
+                                              yolov5m.pt               40
+                                              yolov5l.pt               24
+                                              yolov5x.pt               16
 ```
 
 ## Setting Config
