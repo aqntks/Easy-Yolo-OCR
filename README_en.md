@@ -5,6 +5,8 @@
 ![issue badge](https://img.shields.io/badge/%EB%8B%A4%EA%B5%AD%EC%96%B4-%EC%A7%80%EC%9B%90-yellow)
 [![LinkedIn Badge](http://img.shields.io/badge/LinkedIn-@InpyoHong-0072b1?style=flat&logo=linkedin&link=https://www.linkedin.com/in/inpyo-hong-886781212/)](https://www.linkedin.com/in/inpyo-hong-886781212/)
 
+[[Korean README]](https://github.com/aqntks/Easy-Yolo-OCR/blob/master/README.md)
+
 Proceed with text detection only in the desired area
 
 This repository is a project using [yolov5](https://github.com/ultralytics/yolov5) and [EasyOCR](https://github.com/JaidedAI/EasyOCR).
