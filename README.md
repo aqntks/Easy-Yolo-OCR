@@ -44,6 +44,7 @@ $ pip install -r requirements.txt
 custom.yaml 파일 생성 후 아래 내용 작성
 
 ```bash
+# custom.yaml
 
 path: ./dataset/custom_data
 train: ./dataset/custom_train.txt
