@@ -85,7 +85,7 @@ $ pip install -r requirements.txt
 ./dataset/custom_train_test.txt
 
 ```bash
-예) custom_train.txt
+# 예) custom_train.txt
 
 ./dataset/custom_data/image001.jpg
 ./dataset/custom_data/image002.jpg
@@ -96,7 +96,7 @@ $ pip install -r requirements.txt
               .
 ```
 ```bash
-예) custom_valid.txt
+# 예) custom_valid.txt
 
 ./dataset/custom_data/image101.jpg
 ./dataset/custom_data/image102.jpg
@@ -107,7 +107,7 @@ $ pip install -r requirements.txt
               .
 ```
 ```bash
-예) custom_test.txt (optional)
+# 예) custom_test.txt (optional)
 
 ./dataset/custom_data/image151.jpg
 ./dataset/custom_data/image152.jpg
