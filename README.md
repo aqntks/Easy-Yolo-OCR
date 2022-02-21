@@ -53,7 +53,7 @@ $ pip install -r requirements.txt
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image3.jpg\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image3.txt
 
-### 2. 라벨링 텍스트 구성(image.txt)\
+### 2. 라벨링 텍스트 구성(image.txt)
 (클래스인덱스)&nbsp;(박스시작X좌표[0-1값])&nbsp;(박스시작Y좌표[0-1값])&nbsp;(박스Width[0-1값])&nbsp;(박스Height[0-1값])\
 (클래스인덱스)&nbsp;(박스시작X좌표[0-1값])&nbsp;(박스시작Y좌표[0-1값])&nbsp;(박스Width[0-1값])&nbsp;(박스Height[0-1값])\
 (클래스인덱스)&nbsp;(박스시작X좌표[0-1값])&nbsp;(박스시작Y좌표[0-1값])&nbsp;(박스Width[0-1값])&nbsp;(박스Height[0-1값])\
@@ -79,6 +79,44 @@ $ pip install -r requirements.txt
 0 0.8423611111111111 0.12343749999999999 0.034722222222222224 0.036458333333333336
 ```
 
+### 3. train, valid, test file 생성
+./dataset/custom_train.txt
+./dataset/custom_valid.txt
+./dataset/custom_train_test.txt
+
+```bash
+예) custom_train.txt
+
+./dataset/custom_data/image001.jpg
+./dataset/custom_data/image002.jpg
+./dataset/custom_data/image003.jpg
+./dataset/custom_data/image004.jpg
+              .
+              .
+              .
+```
+```bash
+예) custom_valid.txt
+
+./dataset/custom_data/image101.jpg
+./dataset/custom_data/image102.jpg
+./dataset/custom_data/image103.jpg
+./dataset/custom_data/image104.jpg
+              .
+              .
+              .
+```
+```bash
+예) custom_test.txt (optional)
+
+./dataset/custom_data/image151.jpg
+./dataset/custom_data/image152.jpg
+./dataset/custom_data/image153.jpg
+./dataset/custom_data/image154.jpg
+              .
+              .
+              .
+```
 
 ### 4. custom.yaml 작성
 data/custom.yaml 파일 생성 후 아래 내용 작성
@@ -89,7 +127,7 @@ data/custom.yaml 파일 생성 후 아래 내용 작성
 path: ./dataset/custom_data
 train: ./dataset/custom_train.txt
 val:  ./dataset/custom_valid.txt
-test:  ./dataset/custom_train_test.txt
+test:  ./dataset/custom_train_test.txt  # (optional)
 
 nc: 1  # number of classes
 names: ['text_area']  # class names
