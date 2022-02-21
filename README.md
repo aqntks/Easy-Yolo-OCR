@@ -41,10 +41,28 @@ $ pip install -r requirements.txt
 ```
 
 ## Prepare Training Data
-학습 이미지의 BOX 영역
+1. 데이터 위치
+./dataset/custom_data 폴더 내에 이미지 파일(jpg, png ... etc), 라벨링 파일(txt)을 위치한다.
 
+---dataset
+    ㄴ---custom_data
+        ㄴ---image1.jpg
+          ---image1.txt
+          ---image2.jpg
+          ---image2.txt
+          ---image3.jpg
+          ---image3.txt
+
+2. 라벨링 텍스트 구성(image.txt)
+클래스인덱스 박스시작X좌표 박스시작Y좌표 박스Width 박스Height
+클래스인덱스 박스시작X좌표 박스시작Y좌표 박스Width 박스Height
+클래스인덱스 박스시작X좌표 박스시작Y좌표 박스Width 박스Height
+                         .
+                         .
+                         .
+                         
 ```bash
-# image_label.txt
+# image1.txt 예)
 
 0 0.6659722222222223 0.11302083333333333 0.4013888888888889 0.06770833333333333
 0 0.48333333333333334 0.12552083333333333 0.025 0.036458333333333336
