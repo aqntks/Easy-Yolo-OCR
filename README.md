@@ -148,9 +148,9 @@ names: ['title', 'name', 'personal_id', 'text_box_1', 'text_box_2', 'price', 'ad
 
 ```bash
 $ python train.py --data data/custom.yaml --weights yolov5s.pt --img 640 --batch-size 64 --epochs 300
-                                                     yolov5m.pt      960              40          100
-                                                     yolov5l.pt      480              24           50 
-                                                     yolov5x.pt      320              16           30 
+                                                    yolov5m.pt       960              40          100
+                                                    yolov5l.pt       480              24           50 
+                                                    yolov5x.pt       320              16           30 
 ```
 
 ## Setting Config
