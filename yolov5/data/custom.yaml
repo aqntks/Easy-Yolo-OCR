@@ -1,0 +1,7 @@
+path: ./dataset
+train: custom_train.txt
+val:  custom_valid.txt
+
+
+nc: 1  # number of classes
+names: ['text']  # class names
