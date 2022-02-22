@@ -7,8 +7,8 @@ import argparse
 from core.util import watchDir
 from core.scan import pt_detect
 from easyocr.easyocr import Reader
-from yolov5.utils.torch_utils import time_sync
-from yolov5.models.experimental import attempt_load
+from utils.torch_utils import time_sync
+from models.experimental import attempt_load
 
 
 def main(arg):
@@ -29,7 +29,7 @@ def main(arg):
     f.close()
 
     # 모델 세팅
-    lang_list = lang.split(' ')
+    lang_list = lang.split('/')
     reader = Reader(lang_list)
 
     detection_model = attempt_load(detection, map_location=device)
@@ -55,6 +55,6 @@ if __name__ == "__main__":
     parser.add_argument('--gpu', type=int, default=-1)
     parser.add_argument('--ciou', type=float, default=20)
     parser.add_argument('--gray', type=bool, default=False)
-    parser.add_argument('--lang', type=str, default='en ko')
+    parser.add_argument('--lang', type=str, default='en/ko')
     opt = parser.parse_args()
     main(opt)
