@@ -42,11 +42,23 @@ $ cd Easy-Yolo-OCR
 $ pip install -r requirements.txt
 ```
 
-## Prepare Training Data
-### 1. 데이터 위치
-./dataset/custom_data 폴더 내에 이미지 파일(jpg, png ... etc), 라벨링 파일(txt)을 위치한다.
+## OCR
 
----dataset\
+```bash
+$ python main.py --gpu 0 --lang en ko
+$ python main.py --gpu 0 --lang en
+$ python main.py --gpu -1 --lang ko         # --gpu -1 : cpu mode
+```
+
+## Prepare Training Data
+``` bash
+$ cd yolov5
+```
+
+### 1. 데이터 위치
+yolov5/dataset/custom_data 폴더 내에 이미지 파일(jpg, png ... etc), 라벨링 파일(txt)을 위치한다.
+
+---yolov5/dataset\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ㄴ---custom_data\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ㄴ---image1.jpg\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---image1.txt\
@@ -79,17 +91,17 @@ $ pip install -r requirements.txt
 ```
 
 ### 3. train, valid, test file 생성
-./dataset/custom_train.txt\
-./dataset/custom_valid.txt\
-./dataset/custom_train_test.txt
+yolov5/dataset/custom_train.txt\
+yolov5/dataset/custom_valid.txt\
+yolov5/dataset/custom_train_test.txt (optional)
 
 ```bash
 # 예) custom_train.txt
 
-./dataset/custom_data/image001.jpg
-./dataset/custom_data/image002.jpg
-./dataset/custom_data/image003.jpg
-./dataset/custom_data/image004.jpg
+dataset/custom_data/image001.jpg
+dataset/custom_data/image002.jpg
+dataset/custom_data/image003.jpg
+dataset/custom_data/image004.jpg
               .
               .
               .
@@ -97,10 +109,10 @@ $ pip install -r requirements.txt
 ```bash
 # 예) custom_valid.txt
 
-./dataset/custom_data/image101.jpg
-./dataset/custom_data/image102.jpg
-./dataset/custom_data/image103.jpg
-./dataset/custom_data/image104.jpg
+dataset/custom_data/image101.jpg
+dataset/custom_data/image102.jpg
+dataset/custom_data/image103.jpg
+dataset/custom_data/image104.jpg
               .
               .
               .
@@ -108,10 +120,10 @@ $ pip install -r requirements.txt
 ```bash
 # 예) custom_test.txt (optional)
 
-./dataset/custom_data/image151.jpg
-./dataset/custom_data/image152.jpg
-./dataset/custom_data/image153.jpg
-./dataset/custom_data/image154.jpg
+dataset/custom_data/image151.jpg
+dataset/custom_data/image152.jpg
+dataset/custom_data/image153.jpg
+dataset/custom_data/image154.jpg
               .
               .
               .
@@ -123,19 +135,16 @@ data/custom.yaml 파일 생성 후 아래 내용 작성
 ```bash
 # custom.yaml
 
-path: ./dataset/custom_data
-train: ./dataset/custom_train.txt
-val:  ./dataset/custom_valid.txt
-test:  ./dataset/custom_train_test.txt  # (optional)
+path: ./dataset
+train: custom_train.txt
+val:  custom_valid.txt
+test:  custom_train_test.txt  # (optional)
 
 nc: 10  # number of classes
 names: ['title', 'name', 'personal_id', 'text_box_1', 'text_box_2', 'price', 'address', 'age', 'date', 'count']  # class names
 ```
 
 ## Train Detection Model
-``` bash
-$ cd yolov5
-```
 
 ```bash
 $ python train.py --data data/custom.yaml --weights 'yolov5s.pt' --img 640 --batch-size 64 --epochs 300
@@ -157,11 +166,5 @@ detection-iou: 0.45                          # detecting iou
 ```
 
 
-## OCR
 
-```bash
-$ python main.py --gpu 0 --lang en ko
-$ python main.py --gpu 0 --lang en
-$ python main.py --gpu -1 --lang ko         # --gpu -1 : cpu mode
-```
 
