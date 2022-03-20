@@ -7,7 +7,7 @@
 
 [[Korean README]](https://github.com/aqntks/Easy-Yolo-OCR/blob/master/README.md)
 
-Proceed with text detection only in the desired area
+Proceed with text detection only in the selected area
 
 This repository is a project using [yolov5](https://github.com/ultralytics/yolov5) and [EasyOCR](https://github.com/JaidedAI/EasyOCR).
 
