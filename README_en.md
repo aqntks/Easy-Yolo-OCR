@@ -13,15 +13,15 @@ This repository is a project using [yolov5](https://github.com/ultralytics/yolov
 
 ## Introduction
 
-The existing OCR (Optical Character Recognition) process detects a character area with the Text Detection model and then recognizes the character through the Text Recognition model. These OCR models are effective in recognizing the entire character within a desired document or image.    
+The existing OCR (Optical character recognition) process involves detecting the text regions using a Text Detection model and then recognizing the text using a Text Recognition model. This OCR model is effective in recognizing the entire text within desired documents or images.   
 
 However, if you want to detect only the characters in a specific area within an image or document, it detects unnecessary areas too, so the detection speed takes a long time and it is inconvenient to process the result value.
 
-We suggest Easy Yolo OCR for those who want to detect only characters located in a specific pattern or area in various images.
+To address this issue and cater to those who want to detect only specific patterns or regions of text in various images, we propose Easy Yolo OCR.
 
-Easy Yolo OCR has changed the Text Detection model for detecting text areas to the Object Detection model used for object detection. Learn a custom detection model that suits you and detect only the desired area of ​​the desired format.
+Easy Yolo OCR replaces the Text Detection model used for text region detection with an Object Detection model commonly used in object detection tasks. Train your own custom Detection model and detect only the desired regions in the desired format.
 
-The object detection model uses [yolov5](https://github.com/ultralytics/yolov5), which is actively used in the real-time object detection field. The OCR process benchmarked [EasyOCR](https://github.com/JaidedAI/EasyOCR) and the Text Recognition model was trained through [deep-text-recognition-benchmark](https://github.com/clovaai/deep-text-recognition-benchmark) of Clova AI Research.
+The Object Detection model utilizes [yolov5](https://github.com/ultralytics/yolov5), which is widely employed in real-time object detection. The OCR process is benchmarked against [EasyOCR](https://github.com/JaidedAI/EasyOCR) and the Text Recognition model is trained using the [deep-text-recognition-benchmark](https://github.com/clovaai/deep-text-recognition-benchmark) by Clova AI Research.
 
 - Existing OCR process
 
