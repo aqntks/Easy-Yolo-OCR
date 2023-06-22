@@ -9,7 +9,7 @@
 
 Proceed with text detection only in the selected area
 
-This repository is a project using [yolov5](https://github.com/ultralytics/yolov5) and [EasyOCR](https://github.com/JaidedAI/EasyOCR).
+This repository is a project using [yolov8](https://github.com/ultralytics/ultralytics) & [yolov5](https://github.com/ultralytics/yolov5) and [EasyOCR](https://github.com/JaidedAI/EasyOCR).
 
 ## Introduction
 
@@ -21,7 +21,7 @@ To address this issue and cater to those who want to detect only specific patter
 
 Easy Yolo OCR replaces the Text Detection model used for text region detection with an Object Detection model commonly used in object detection tasks. Train your own custom Detection model and detect only the desired regions in the desired format.
 
-The Object Detection model utilizes [yolov5](https://github.com/ultralytics/yolov5), which is widely employed in real-time object detection. The OCR process is benchmarked against [EasyOCR](https://github.com/JaidedAI/EasyOCR) and the Text Recognition model is trained using the [deep-text-recognition-benchmark](https://github.com/clovaai/deep-text-recognition-benchmark) by Clova AI Research.
+The Object Detection model utilizes [yolov8](https://github.com/ultralytics/ultralytics) & [yolov5](https://github.com/ultralytics/yolov5), which is widely employed in real-time object detection. The OCR process is benchmarked against [EasyOCR](https://github.com/JaidedAI/EasyOCR) and the Text Recognition model is trained using the [deep-text-recognition-benchmark](https://github.com/clovaai/deep-text-recognition-benchmark) by Clova AI Research.
 
 - Existing OCR process
 
