@@ -1,4 +1,3 @@
-
 import yaml
 from core.util import *
 from core.general import *
@@ -64,29 +63,38 @@ def detection(det, names):
 
 
 def pt_detect(path, device, models, ciou, reader, gray=False, byteMode=False):
-    driver_weights = models
+    try:
+        driver_weights = models
 
-    half = device.type != 'cpu'
-    # config 로드
-    with open('config.yaml', 'r') as f:
-        config = yaml.safe_load(f)
-    img_size, confidence, iou = config['detection-size'], config['detection-confidence'], config['detection-iou']
-    detection_option = (img_size, confidence, iou)
-    f.close()
+        half = device.type != 'cpu'
+        # config 로드
+        with open('config.yaml', 'r') as f:
+            config = yaml.safe_load(f)
+        img_size, confidence, iou = config['detection-size'], config['detection-confidence'], config['detection-iou']
+        detection_option = (img_size, confidence, iou)
+        f.close()
 
-    model, stride, img_size, names = model_setting(driver_weights, half, detection_option[0])
-    image_pack = ImagePack(path, img_size, stride, byteMode=byteMode, gray=gray)
-    img, im0s = image_pack.getImg()
-    det = detecting(model, img, im0s, device, img_size, half, detection_option[1:], ciou)
-    rect_list, label_list = detection(det, names)
+        print(f"Processing image: {path}")
+        model, stride, img_size, names = model_setting(driver_weights, half, detection_option[0])
+        image_pack = ImagePack(path, img_size, stride, byteMode=byteMode, gray=gray)
+        img, im0s = image_pack.getImg()
+        
+        if img is None or im0s is None:
+            raise ValueError("Failed to load image")
+            
+        det = detecting(model, img, im0s, device, img_size, half, detection_option[1:], ciou)
+        
+        if det is None:
+            print(f"No objects detected in {path}")
+            return None
 
-    result = reader.recogss(im0s, rect_list)
-
-    result_line, i = [], 0
-    print(f'----------- {path} -----------')
-    for r in result:
-        line = r[1]
-        print(f'{label_list[i]} : {line}')
-        result_line.append(line)
-        i += 1
-    print('-------------------------------')
+        # Process detections
+        rect_list, label_list = detection(det, names)
+        print(f"Found {len(rect_list)} objects in {path}")
+        return rect_list, label_list
+        
+    except Exception as e:
+        print(f"Error in pt_detect: {str(e)}")
+        import traceback
+        print(traceback.format_exc())
+        return None
