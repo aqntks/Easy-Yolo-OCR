@@ -89,11 +89,16 @@ class Ensemble(nn.ModuleList):
 
 def attempt_load(weights, map_location=None, inplace=True, fuse=True):
     from models.yolo import Detect, Model
+    import torch.serialization
+    import numpy.core.multiarray
+
+    # Add numpy core multiarray to safe globals for PyTorch 2.6+
+    torch.serialization.add_safe_globals([numpy.core.multiarray._reconstruct])
 
     # Loads an ensemble of models weights=[a,b,c] or a single model weights=[a] or weights=a
     model = Ensemble()
     for w in weights if isinstance(weights, list) else [weights]:
-        ckpt = torch.load(attempt_download(w), map_location=map_location)  # load
+        ckpt = torch.load(attempt_download(w), map_location=map_location, weights_only=False)  # load
         if fuse:
             model.append(ckpt['ema' if ckpt.get('ema') else 'model'].float().fuse().eval())  # FP32 model
         else:

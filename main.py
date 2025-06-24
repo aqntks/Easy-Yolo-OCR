@@ -47,6 +47,7 @@ def main(arg):
                 pt_detect(img, device, detection_model, ciou, reader, gray=gray, byteMode=False)
                 print('detecting time:', time_sync() - start_time)
             except Exception as e:
+                print(f"Error processing {img}: {e}")
                 print("detecting Fail")
 
 

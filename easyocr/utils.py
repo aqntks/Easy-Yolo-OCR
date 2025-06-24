@@ -11,6 +11,7 @@ import hashlib
 import sys, os
 from zipfile import ZipFile
 from .imgproc import loadImage
+from PIL.Image import Resampling  # Add this import for modern Pillow support
 
 if sys.version_info[0] == 2:
     from six.moves.urllib.request import urlretrieve
@@ -529,9 +530,9 @@ def compute_ratio_and_resize(img,width,height,model_height):
     ratio = width/height
     if ratio<1.0:
         ratio = calculate_ratio(width,height)
-        img = cv2.resize(img,(model_height,int(model_height*ratio)), interpolation=Image.ANTIALIAS)
+        img = cv2.resize(img,(model_height,int(model_height*ratio)), interpolation=Image.LANCZOS)
     else:
-        img = cv2.resize(img,(int(model_height*ratio),model_height),interpolation=Image.ANTIALIAS)
+        img = cv2.resize(img,(int(model_height*ratio),model_height),interpolation=Image.LANCZOS)
     return img,ratio
 
 
